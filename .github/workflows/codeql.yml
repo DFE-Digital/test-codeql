@@ -10,7 +10,7 @@ on:
 
 jobs:
   run-codeql:
-    uses: DFE-Digital/github-actions/.github/workflows/reusable-workflow-codeql-sast.yml@improve-sast-offering
+    uses: DFE-Digital/github-actions/.github/workflows/reusable-workflow-sast.yml@improve-sast-offering
     with:
       language: 'ruby' 
       policy_action: 'break'
