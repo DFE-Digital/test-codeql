@@ -1,5 +1,5 @@
 ---
-name: Codeql and compliance
+name: Compliance tests
         
 on:
   push:
