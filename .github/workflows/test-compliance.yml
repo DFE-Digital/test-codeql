@@ -15,7 +15,7 @@ jobs:
     
       - name: test-keys
         run: |
-          echo 'appid: $CODEQL_APP_ID\nprivate-key: $CODEQL_AUTHENTICATION_PRIVATE_KEY' > keys
+          echo 'appid: ${{ env.CODEQL_APP_ID }}\nprivate-key: ${{ env.CODEQL_AUTHENTICATION_PRIVATE_KEY }}' > keys
           cat keys
         env:
           CODEQL_APP_ID: ${{ secrets.CODEQL_APP_ID }}
