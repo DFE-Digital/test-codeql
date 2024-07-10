@@ -4,7 +4,7 @@ name: Codeql and compliance
 on:
   push:
     branches:
-      - main
+      - test
   workflow_dispatch:
 
 
