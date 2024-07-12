@@ -15,7 +15,6 @@ jobs:
       language: 'ruby' 
       policy_action: 'break'
       queries: 'security-and-quality'
-      force_semgrep: true
     secrets:
       CODEQL_AUTHENTICATION_PRIVATE_KEY: ${{ secrets.CODEQL_AUTHENTICATION_PRIVATE_KEY }} 
       CODEQL_APP_ID: ${{ secrets.CODEQL_APP_ID }}
